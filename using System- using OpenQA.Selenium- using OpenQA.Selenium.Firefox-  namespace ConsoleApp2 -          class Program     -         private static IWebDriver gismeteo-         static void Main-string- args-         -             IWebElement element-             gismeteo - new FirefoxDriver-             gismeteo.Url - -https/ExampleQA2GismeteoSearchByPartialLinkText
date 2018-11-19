@@ -1,0 +1,23 @@
+using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+
+namespace ConsoleApp2
+{
+    
+    class Program
+    {
+        private static IWebDriver gismeteo;
+        static void Main(string[] args)
+        {
+            IWebElement element;
+            gismeteo = new FirefoxDriver();
+            gismeteo.Url = "https://gismeteo.ua";
+            gismeteo.Manage().Window.Maximize();
+            gismeteo.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            element = gismeteo.FindElement(By.PartialLinkText("Самуэль"));
+            element.Click();
+             
+        }
+    }
+}
