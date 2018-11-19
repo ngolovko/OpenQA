@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IWebDriver driver = new FirefoxDriver();
+            driver.Url = "https://gismeteo.ua";
+            driver.FindElement(By.Id("ya")).SendKeys("Київ"+OpenQA.Selenium.Keys.Enter);
+          
+
+
+        }
+    }
+}
