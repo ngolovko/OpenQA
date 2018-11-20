@@ -1,0 +1,36 @@
+using System;
+using System.IO;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
+
+namespace ConsoleApp2
+{
+    
+    class Program
+    {
+        private static IWebDriver litecart;
+        private static IWebElement admin;
+        private static IWebElement pass;
+        private static IWebElement butt;
+
+
+        static void Main(string[] args)
+        {
+            
+            litecart = new FirefoxDriver();
+            litecart.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+         // аутентицикацыя в сплывающем окне
+            litecart.Url = "http://admin:admin@localhost/litecart/admin";
+        //  litecart.Manage().Window.Maximize()
+
+          // аутентицикацыя на сайт  
+            admin = litecart.FindElement(By.Name("username"));
+            pass = litecart.FindElement(By.Name("password"));
+            pass.SendKeys("admin"+OpenQA.Selenium.Keys.Enter);
+            //  butt = litecart.FindElement(By.Name("login"));
+            //  butt.SendKeys(OpenQA.Selenium.Keys.Enter);
+            //litecart.Close();
+        }
+    }
+}
